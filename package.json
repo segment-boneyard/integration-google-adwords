@@ -6,6 +6,17 @@
   "scripts": {
     "test": "make test"
   },
+  "dependencies": {
+    "segmentio-integration": "^4.0.0"
+  },
+  "devDependencies": {
+    "istanbul": "^0.3.0",
+    "jscs": "^1.6.2",
+    "mocha": "2.x",
+    "segmentio-facade": "2.x",
+    "segmentio-integration-tester": "1.x",
+    "should": "^4.1.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/segment-integrations/integration-google-adwords.git"
