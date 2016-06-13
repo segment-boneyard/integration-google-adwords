@@ -7,6 +7,7 @@
     "test": "make test"
   },
   "dependencies": {
+    "reject": "0.0.1",
     "segmentio-integration": "^4.0.0"
   },
   "devDependencies": {

@@ -3,7 +3,7 @@ var Test = require('segmentio-integration-tester');
 var assert = require('assert');
 var facade = require('segmentio-facade');
 var should = require('should');
-var FacebookAppEvents = require('..');
+var GoogleAdWords = require('..');
 var mapper = require('../lib/mapper');
 
 describe('Google AdWords', function(){
@@ -12,7 +12,14 @@ describe('Google AdWords', function(){
   var test;
 
   beforeEach(function(){
-    settings = {};
+    settings = {
+      events: {
+        'Application Installed': {
+          conversionId: 0123456789,
+          conversionLabel: 'abCDEFG12hIJk3Lm4nO'
+        }
+      }
+    };
   });
 
   beforeEach(function(){
@@ -24,9 +31,9 @@ describe('Google AdWords', function(){
   it('should have the correct settings', function(){
     test
       .name('Google AdWords')
-      .endpoint('')
+      .endpoint('https://www.googleadservices.com/pagead/conversion/')
       .channels(['server'])
-      .ensure('');
+      .ensure('settings.events');
   });
 
   describe('.validate()', function(){
@@ -35,7 +42,7 @@ describe('Google AdWords', function(){
     beforeEach(function(){
       msg = {
         type: 'track',
-        event: 'Character Upgraded',
+        event: 'Application Installed',
         timestamp: new Date(),
         context: {
           app: {
@@ -46,9 +53,21 @@ describe('Google AdWords', function(){
             type: 'ios',
             advertisingId: '123456',
             adTrackingEnabled: 1
+          },
+          os: {
+            name: 'iPhone OS',
+            version: '8.1.5'
+          },
+          sdk: {
+            version: '0.1.0'
           }
         }
       };
+    });
+
+    it('should be invalid when settings are not complete', function(){
+      delete settings.events;
+      test.invalid(msg, settings);
     });
 
     it('should be valid when settings are complete', function(){
