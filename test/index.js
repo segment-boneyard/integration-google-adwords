@@ -17,6 +17,10 @@ describe('Google AdWords', function(){
         'Application Installed': {
           conversionId: 0123456789,
           conversionLabel: 'abCDEFG12hIJk3Lm4nO'
+        },
+        'Payment Info Added': {
+          conversionId: 1234567890,
+          conversionLabel: 'abcdefghijklmnopqrs'
         }
       }
     };
@@ -77,24 +81,26 @@ describe('Google AdWords', function(){
 
    describe('mapper', function(){
 
-    // describe('track', function(){
-    //   it('should map basic track', function(){
-    //     test.maps('track-basic');
-    //   });
-    // });
+    describe('track', function(){
+      it('should map basic track', function(){
+        test.maps('track-basic');
+      });
+    });
 
   });
 
   describe('track', function(){
 
-    // it('should track basic correctly', function(done){
-    //   var json = test.fixture('track-basic');
-    //   test
-    //     .track(json.input)
-    //     .sends(json.output)
-    //     .expects(200)
-    //     .end(done);
-    // });
+    it('should track basic correctly', function(done){
+      var json = test.fixture('track-basic');
+      test
+        .track(json.input)
+        .query(json.output)
+        .end(function(err, res) {
+          assert(res.ok);
+          done(err);
+        });
+    });
 
   });
 });
