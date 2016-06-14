@@ -9,7 +9,8 @@
       "ip": "10.0.0.2",
       "app": { 
         "namespace": "com.segment.TestApp",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "build": "1.0.0"
       },
       "device": {
         "manufacturer": "some-brand",
@@ -20,9 +21,6 @@
       "locale": "en-US",
       "library": {
         "name": "analytics-ios"
-      },
-      "sdk": {
-        "version": "1.0.0"
       },
       "os": {
         "version": "1.0.0"
