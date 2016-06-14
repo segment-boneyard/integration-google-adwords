@@ -15,15 +15,10 @@ describe('Google AdWords', function(){
   beforeEach(function(){
     sandbox = sinon.sandbox.create();
     settings = {
+      conversionId: 1012091361,
       events: {
-        'Application Installed': {
-          conversionId: 1012091361,
-          conversionLabel: '824NCNfly2cQ4ZPN4gM'
-        },
-        'Payment Info Added': {
-          conversionId: 1012091361,
-          conversionLabel: 'L5vqCITpy2cQ4ZPN4gM'
-        }
+        'Application Installed': '824NCNfly2cQ4ZPN4gM',
+        'Payment Info Added': 'L5vqCITpy2cQ4ZPN4gM'
       }
     };
   });
