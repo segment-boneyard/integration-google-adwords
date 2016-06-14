@@ -5,6 +5,7 @@ var facade = require('segmentio-facade');
 var should = require('should');
 var GoogleAdWords = require('..');
 var mapper = require('../lib/mapper');
+var sinon = require('sinon');
 
 describe('Google AdWords', function(){
   var settings;
@@ -12,15 +13,16 @@ describe('Google AdWords', function(){
   var test;
 
   beforeEach(function(){
+    sandbox = sinon.sandbox.create();
     settings = {
       events: {
         'Application Installed': {
-          conversionId: 0123456789,
-          conversionLabel: 'abCDEFG12hIJk3Lm4nO'
+          conversionId: 1012091361,
+          conversionLabel: '824NCNfly2cQ4ZPN4gM'
         },
         'Payment Info Added': {
-          conversionId: 1234567890,
-          conversionLabel: 'abcdefghijklmnopqrs'
+          conversionId: 1012091361,
+          conversionLabel: 'L5vqCITpy2cQ4ZPN4gM'
         }
       }
     };
@@ -87,18 +89,37 @@ describe('Google AdWords', function(){
       });
     });
 
+    describe('Application Opened', function(){
+      it('should map Application Opened', function(){
+        test.maps('track-application-opened');
+      });
+    });
+
   });
 
   describe('track', function(){
 
-    it('should track basic correctly', function(done){
+    it('should track basic mapped events correctly', function(done){
+      var spy = sandbox.spy(googleAdWords, 'get');
       var json = test.fixture('track-basic');
       test
         .track(json.input)
         .query(json.output)
-        .end(function(err, res) {
-          assert(res.ok);
-          done(err);
+        .expects(200, function(err,res) {
+          assert(spy.calledWithExactly('1012091361/'));
+          done();
+        });
+    });
+
+    it('should track Opened Application correctly', function(done){
+      var spy = sandbox.spy(googleAdWords, 'get');
+      var json = test.fixture('track-application-opened');
+      test
+        .track(json.input)
+        .query(json.output)
+        .expects(200, function(err, res){
+          assert(spy.calledWithExactly('1012091361/'));
+          done();
         });
     });
 

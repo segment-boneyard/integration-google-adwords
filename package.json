@@ -16,7 +16,8 @@
     "mocha": "2.x",
     "segmentio-facade": "2.x",
     "segmentio-integration-tester": "1.x",
-    "should": "^4.1.0"
+    "should": "^4.1.0",
+    "sinon": "^1.17.4"
   },
   "repository": {
     "type": "git",
