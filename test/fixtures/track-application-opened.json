@@ -1,7 +1,7 @@
 {
   "input": {
     "type": "track",
-    "event": "Payment Info Added",
+    "event": "Application Installed",
     "userId": "user-id",
     "properties": {},
     "timestamp": "2015-11-09",
@@ -22,13 +22,17 @@
       "library": {
         "name": "analytics-ios"
       },
+      "referrer": {
+        "type": "iad",
+        "id": "some-id"
+      },
       "os": {
         "version": "1.0.0"
       }
     }
   },
   "output": {
-    "label": "L5vqCITpy2cQ4ZPN4gM",
+    "label": "824NCNfly2cQ4ZPN4gM",
     "rdid": "159358",
     "idtype": "advertisingid",
     "lat": "0",
@@ -36,6 +40,7 @@
     "appversion": "1.0.0",
     "osversion": "1.0.0",
     "sdkversion": "1.0.0",
+    "referrer": "some-id",
     "currency_code": "USD"
   }
 }
