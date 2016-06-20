@@ -1,4 +1,4 @@
-[![Build Status](https://circleci.com/gh/segmentio/integration-google-adwords/tree/master.png?style=svg)](https://circleci.com/gh/segmentio/integration-google-adwords/tree/master)
+[![Build Status](https://circleci.com/gh/segment-integrations/integration-google-adwords/tree/master.png?style=svg)](https://circleci.com/gh/segment-integrations/integration-google-adwords/tree/master)
 
 # integration-google-adwords
 
