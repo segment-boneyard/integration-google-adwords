@@ -1,6 +1,6 @@
 {
   "name": "integration-google-adwords",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Google AdWords server-side integration",
   "main": "lib/index.js",
   "scripts": {
