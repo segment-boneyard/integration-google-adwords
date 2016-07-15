@@ -1,0 +1,60 @@
+{
+"input": {
+  "type": "track",
+  "event": "Application Installed",
+  "userId": "user-id",
+  "properties": {},
+  "timestamp": "2015-11-09",
+  "context": {
+    "ip": "10.0.0.2",
+    "app": { 
+      "namespace": "com.segment.TestApp",
+      "name": "Segment Test",
+      "version": "1.0.0",
+      "build": "1.0.0"
+    },
+    "network": { "carrier": "some-carrier" },
+    "locale": "en-US",
+    "library": {
+      "name": "analytics-android",
+      "version": "4.0.3"
+    },
+    "referrer": {
+      "type": "iad",
+      "id": "some-id"
+    },
+    "os": {
+      "name": "Android",
+      "version": "5.0"
+    },
+    "timezone": "America/Los_Angeles",
+    "screen": {
+      "density": 3,
+      "width": 1080,
+      "height": 1920
+    },
+    "userAgent": "Dalvik/2.1.0 (Linux; U; Android 5.0; SM-N900P Build/LRX21V)",
+    "device": {
+      "id": "987b82fe0441db85",
+      "manufacturer": "samsung",
+      "model": "SM-N900P",
+      "name": "hltespr",
+      "advertisingId": "29d7493b-bc9a-4fa9-939b-367c26ac0ec4",
+      "adTrackingEnabled": false,
+      "type": "android"
+    }
+  }
+},
+"output": {
+  "label": "824NCNfly2cQ4ZPN4gM",
+  "rdid": "29d7493b-bc9a-4fa9-939b-367c26ac0ec4",
+  "idtype": "advertisingid",
+  "lat": "0",
+  "bundleid": "com.segment.TestApp",
+  "appversion": "1.0.0",
+  "osversion": "5.0",
+  "sdkversion": "1.0.0",
+  "referrer": "some-id",
+  "currency_code": "USD"
+}
+}
