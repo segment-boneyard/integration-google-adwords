@@ -30,7 +30,7 @@
   "output": {
     "label": "L5vqCITpy2cQ4ZPN4gM",
     "rdid": "159358",
-    "idtype": "advertisingid",
+    "idtype": "idfa",
     "lat": "0",
     "bundleid": "com.segment.TestApp",
     "appversion": "1.0.0",

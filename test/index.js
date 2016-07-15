@@ -84,9 +84,13 @@ describe('Google AdWords', function(){
       });
     });
 
-    describe('Application Opened', function(){
-      it('should map Application Opened', function(){
-        test.maps('track-application-opened');
+    describe('Application Installed', function(){
+      it('should map Application Installed for iOS', function(){
+        test.maps('track-application-installed-ios');
+      });
+
+      it('should map Application Installed for android', function(){
+        test.maps('track-application-installed-android');
       });
     });
 
@@ -106,9 +110,21 @@ describe('Google AdWords', function(){
         });
     });
 
-    it('should track Opened Application correctly', function(done){
+    it('should track Application Installed correctly for iOS', function(done){
       var spy = sandbox.spy(googleAdWords, 'get');
-      var json = test.fixture('track-application-opened');
+      var json = test.fixture('track-application-installed-ios');
+      test
+        .track(json.input)
+        .query(json.output)
+        .expects(200, function(err, res){
+          assert(spy.calledWithExactly('1012091361/'));
+          done();
+        });
+    });
+
+    it('should track Application Installed correctly for android', function(done){
+      var spy = sandbox.spy(googleAdWords, 'get');
+      var json = test.fixture('track-application-installed-android');
       test
         .track(json.input)
         .query(json.output)
