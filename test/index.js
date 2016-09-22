@@ -3,11 +3,11 @@ var Test = require('segmentio-integration-tester');
 var assert = require('assert');
 var facade = require('segmentio-facade');
 var should = require('should');
-var GoogleAdWords = require('..');
+var AdWords = require('..');
 var mapper = require('../lib/mapper');
 var sinon = require('sinon');
 
-describe('Google AdWords', function(){
+describe('AdWords', function(){
   var settings;
   var googleAdWords;
   var test;
@@ -24,14 +24,14 @@ describe('Google AdWords', function(){
   });
 
   beforeEach(function(){
-    googleAdWords = new GoogleAdWords(settings);
+    googleAdWords = new AdWords(settings);
     test = Test(googleAdWords, __dirname);
     test.mapper(mapper);
   });
 
   it('should have the correct settings', function(){
     test
-      .name('Google AdWords')
+      .name('AdWords')
       .endpoint('https://www.googleadservices.com/pagead/conversion/')
       .channels(['server'])
       .ensure('settings.events');
