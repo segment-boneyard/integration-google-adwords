@@ -11,19 +11,17 @@ describe('AdWords', function(){
   var settings;
   var googleAdWords;
   var test;
-
+  var settings;
   beforeEach(function(){
-    sandbox = sinon.sandbox.create();
     settings = {
       conversionId: 1012091361,
       events: {
         'Application Installed': '824NCNfly2cQ4ZPN4gM',
         'Payment Info Added': 'L5vqCITpy2cQ4ZPN4gM'
-      }
+      },
+      remarketing: false
     };
-  });
 
-  beforeEach(function(){
     googleAdWords = new AdWords(settings);
     test = Test(googleAdWords, __dirname);
     test.mapper(mapper);
@@ -79,60 +77,82 @@ describe('AdWords', function(){
    describe('mapper', function(){
 
     describe('track', function(){
-      it('should map basic track', function(){
-        test.maps('track-basic');
+      describe('conversions', function(){
+        it('should map basic track', function(){
+          test.maps('track-basic');
+        });
+
+        it('should map Application Installed for iOS', function(){
+          test.maps('track-application-installed-ios');
+        });
+
+        it('should map Application Installed for android', function(){
+          test.maps('track-application-installed-android');
+        });
+      });
+
+      describe('remarketing', function(){
+        it('should map remarketing', function(){
+          googleAdWords.settings.remarketing = true;
+          test.maps('track-remarketing');
+        });
       });
     });
-
-    describe('Application Installed', function(){
-      it('should map Application Installed for iOS', function(){
-        test.maps('track-application-installed-ios');
-      });
-
-      it('should map Application Installed for android', function(){
-        test.maps('track-application-installed-android');
-      });
-    });
-
   });
 
   describe('track', function(){
-
     it('should track basic mapped events correctly', function(done){
-      var spy = sandbox.spy(googleAdWords, 'get');
       var json = test.fixture('track-basic');
+      // Remarketing is false by default so should only send mapped event conversion
       test
         .track(json.input)
-        .query(json.output)
-        .expects(200, function(err,res) {
-          assert(spy.calledWithExactly('1012091361/'));
-          done();
-        });
+        .requests(1)
+
+      test
+        .request(0)
+        .query(json.output[0])
+        .expects(200, done);
     });
 
     it('should track Application Installed correctly for iOS', function(done){
-      var spy = sandbox.spy(googleAdWords, 'get');
       var json = test.fixture('track-application-installed-ios');
+
       test
         .track(json.input)
-        .query(json.output)
-        .expects(200, function(err, res){
-          assert(spy.calledWithExactly('1012091361/'));
-          done();
-        });
+        .request(0)
+        .query(json.output[0])
+        .expects(200, done);
     });
 
     it('should track Application Installed correctly for android', function(done){
-      var spy = sandbox.spy(googleAdWords, 'get');
       var json = test.fixture('track-application-installed-android');
+
       test
         .track(json.input)
-        .query(json.output)
-        .expects(200, function(err, res){
-          assert(spy.calledWithExactly('1012091361/'));
-          done();
-        });
+        .request(0)
+        .query(json.output[0])
+        .expects(200, done);
     });
 
+    it('should send both conversion and additionally a remarketing tag if enabled', function(done){
+      googleAdWords.settings.remarketing = true;
+      var json = test.fixture('track-remarketing');
+
+      test
+        .track(json.input)
+        .requests(2);
+
+      test
+        .request(0)
+        .query(json.output[0])
+        .expects(200);
+
+      test
+        .request(1)
+        .query(json.output[1])
+        .expects(200);
+
+      test.end(done);
+    });
   });
 });

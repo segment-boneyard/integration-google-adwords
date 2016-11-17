@@ -7,15 +7,16 @@
     "test": "make test"
   },
   "dependencies": {
-    "reject": "0.0.1",
+    "@ndhoule/each": "^2.0.1",
+    "batch": "^0.5.3",
     "segmentio-integration": "^5.0.1"
   },
   "devDependencies": {
     "istanbul": "^0.3.0",
     "jscs": "^1.6.2",
     "mocha": "2.x",
-    "segmentio-facade": "2.x",
-    "segmentio-integration-tester": "1.x",
+    "segmentio-facade": "^3.x",
+    "segmentio-integration-tester": "^2.x",
     "should": "^4.1.0",
     "sinon": "^1.17.4"
   },
