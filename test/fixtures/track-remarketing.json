@@ -3,7 +3,10 @@
     "type": "track",
     "event": "Payment Info Added",
     "userId": "user-id",
-    "properties": {},
+    "properties": {
+      "suh": "dude",
+      "cheech": "chong"
+    },
     "timestamp": "2015-11-09",
     "context": {
       "ip": "10.0.0.2",
@@ -28,16 +31,29 @@
       }
     }
   },
-  "output": [{
-    "label": "L5vqCITpy2cQ4ZPN4gM",
-    "rdid": "159358",
-    "idtype": "idfa",
-    "lat": 0,
-    "bundleid": "com.segment.TestApp",
-    "appversion": "1.0.0",
-    "osversion": "1.0.0",
-    "sdkversion": "1.0.0",
-    "currency_code": "USD",
-    "value": 0
-  }]
+  "output": [
+    {
+      "label": "L5vqCITpy2cQ4ZPN4gM",
+      "rdid": "159358",
+      "idtype": "idfa",
+      "lat": 0,
+      "bundleid": "com.segment.TestApp",
+      "appversion": "1.0.0",
+      "osversion": "1.0.0",
+      "sdkversion": "1.0.0",
+      "currency_code": "USD",
+      "value": 0
+    },
+    {
+      "rdid": "159358",
+      "idtype": "idfa",
+      "lat": "0",
+      "bundleid": "com.segment.TestApp",
+      "appversion": "1.0.0",
+      "osversion": "1.0.0",
+      "remarketing_only": 1,
+      "data.suh": "dude",
+      "data.cheech": "chong"
+    }
+  ]
 }
