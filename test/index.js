@@ -19,7 +19,8 @@ describe('AdWords', function(){
         'Application Installed': '824NCNfly2cQ4ZPN4gM',
         'Payment Info Added': 'L5vqCITpy2cQ4ZPN4gM'
       },
-      remarketing: false
+      remarketing: false,
+      whitelist: []
     };
 
     googleAdWords = new AdWords(settings);
@@ -31,8 +32,7 @@ describe('AdWords', function(){
     test
       .name('AdWords')
       .endpoint('https://www.googleadservices.com/pagead/conversion/')
-      .channels(['server'])
-      .ensure('settings.events');
+      .channels(['server']);
   });
 
   describe('.validate()', function(){
@@ -65,11 +65,17 @@ describe('AdWords', function(){
     });
 
     it('should be invalid when settings are not complete', function(){
-      delete settings.events;
+      settings.events = {};
       test.invalid(msg, settings);
     });
 
     it('should be valid when settings are complete', function(){
+      test.valid(msg, settings);
+    });
+
+    it('should still be valid if you have no conversion labels but whitelisted remarketing', function(){
+      msg.event = 'remarketing';
+      settings.whitelist.push('remarketing');
       test.valid(msg, settings);
     });
   });
@@ -150,6 +156,22 @@ describe('AdWords', function(){
       test
         .request(1)
         .query(json.output[1])
+        .expects(200);
+
+      test.end(done);
+    });
+
+    it('should send standalone remarketing ping if whitelisted', function(done){
+      googleAdWords.settings.whitelist = ['whats gucci'];
+      var json = test.fixture('track-whitelist');
+
+      test
+        .track(json.input)
+        .requests(1);
+
+      test
+        .request(0)
+        .query(json.output)
         .expects(200);
 
       test.end(done);
