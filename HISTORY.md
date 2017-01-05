@@ -1,13 +1,18 @@
 
+2.2.1 / 2017-01-05
+==================
+
+  * Fix uncaught exceptions
+
 2.2.0 / 2017-01-05
 ==================
 
-  * Support sending standalone remarketing tags 
+  * Support sending standalone remarketing tags
 
 2.1.0 / 2016-12-01
 ==================
 
-  * Support Remarketing tags 
+  * Support Remarketing tags
 
 2.0.0 / 2016-09-22
 ==================
