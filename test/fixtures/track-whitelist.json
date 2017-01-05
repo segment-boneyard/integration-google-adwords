@@ -1,0 +1,45 @@
+{
+  "input": {
+    "type": "track",
+    "event": "whats gucci",
+    "userId": "user-id",
+    "properties": {
+      "suh": "dude",
+      "cheech": "chong"
+    },
+    "timestamp": "2015-11-09",
+    "context": {
+      "ip": "10.0.0.2",
+      "app": {
+        "namespace": "com.segment.TestApp",
+        "version": "1.0.0",
+        "build": "1.0.0"
+      },
+      "device": {
+        "manufacturer": "some-brand",
+        "type": "ios",
+        "adTrackingEnabled": false,
+        "advertisingId": "159358"
+      },
+      "network": { "carrier": "some-carrier" },
+      "locale": "en-US",
+      "library": {
+        "name": "analytics-ios"
+      },
+      "os": {
+        "version": "1.0.0"
+      }
+    }
+  },
+  "output": {
+    "rdid": "159358",
+    "idtype": "idfa",
+    "lat": "0",
+    "bundleid": "com.segment.TestApp",
+    "appversion": "1.0.0",
+    "osversion": "1.0.0",
+    "data.cheech": "chong",
+    "data.suh": "dude",
+    "remarketing_only": "1"
+  }
+}
