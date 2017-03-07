@@ -1,6 +1,6 @@
 {
   "name": "@segment/integration-google-adwords",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "Google AdWords server-side integration",
   "main": "lib/index.js",
   "scripts": {
