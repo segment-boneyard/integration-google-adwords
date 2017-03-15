@@ -1,3 +1,7 @@
+2.3.3 / 2017-03-15
+==================
+
+  * Set LAT parameter to proper values, as they were inverted.
 
 2.3.0 / 2017-01-31
 ==================
