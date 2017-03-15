@@ -34,7 +34,7 @@
   "output": {
     "rdid": "159358",
     "idtype": "idfa",
-    "lat": "0",
+    "lat": "1",
     "bundleid": "com.segment.TestApp",
     "appversion": "1.0.0",
     "osversion": "1.0.0",
