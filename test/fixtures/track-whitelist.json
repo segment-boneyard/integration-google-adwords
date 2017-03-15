@@ -40,7 +40,6 @@
     "osversion": "1.0.0",
     "data.cheech": "chong",
     "data.suh": "dude",
-    "remarketing_only": "1",
-    "usage_tracking_enabled": "1"
+    "remarketing_only": "1"
   }
 }

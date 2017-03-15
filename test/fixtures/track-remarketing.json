@@ -52,7 +52,6 @@
       "appversion": "1.0.0",
       "osversion": "1.0.0",
       "remarketing_only": 1,
-      "usage_tracking_enabled": 1,
       "data.suh": "dude",
       "data.cheech": "chong"
     }
