@@ -21,7 +21,7 @@
     "jscs": "^1.6.2",
     "mocha": "2.x",
     "segmentio-facade": "^3.x",
-    "segmentio-integration-tester": "^2.x",
+    "segmentio-integration-tester": "2.x",
     "should": "^4.1.0",
     "sinon": "^1.17.4"
   },
